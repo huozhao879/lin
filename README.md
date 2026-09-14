@@ -3,227 +3,301 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#070812">
+<meta name="theme-color" content="#020617">
 <title>Huo Zhao • Official Links</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --primary:#a486ff;
-  --primary-2:#6d51bb;
-  --bg-1:#05060d;
-  --bg-2:#0b0a16;
-  --bg-3:#04050a;
-  --border:rgba(255,255,255,.09);
-  --text-muted:#aaa8ba;
-  --text-dim:#6f6d7d;
-}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{
   min-height:100vh;
-  font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  color:#fff;
-  display:grid;
-  place-items:center;
+  font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:#e2e8f0;
+  background:#020617;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
   overflow-x:hidden;
-  background:
-    radial-gradient(circle at 50% 0%,#34245f 0,transparent 38%),
-    radial-gradient(circle at 0% 100%,#102f48 0,transparent 35%),
-    linear-gradient(145deg,var(--bg-1),var(--bg-2) 52%,var(--bg-3));
-  -webkit-tap-highlight-color:transparent;
+  position:relative;
 }
+/* Cahaya background */
 body::before{
   content:"";
-  position:fixed;inset:0;pointer-events:none;opacity:.15;
-  background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-  background-size:40px 40px;
-  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
-  -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
+  position:fixed;
+  top:-200px;left:50%;
+  width:600px;height:600px;
+  transform:translateX(-50%);
+  background:radial-gradient(circle,#0ea5e9 0%,transparent 60%);
+  opacity:.15;
+  pointer-events:none;
+  filter:blur(60px);
 }
-.orb{position:fixed;width:230px;height:230px;border-radius:50%;filter:blur(70px);opacity:.22;pointer-events:none;z-index:0}
-.orb.o1{background:#8058d8;top:-90px;left:-100px;animation:drift 9s ease-in-out infinite}
-.orb.o2{background:#2c91bd;right:-100px;bottom:-90px;animation:drift 12s ease-in-out infinite reverse}
-
-.wrap{width:min(100%,570px);padding:18px;position:relative;z-index:2}
+body::after{
+  content:"";
+  position:fixed;
+  bottom:-200px;right:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,#06b6d4 0%,transparent 60%);
+  opacity:.12;
+  pointer-events:none;
+  filter:blur(60px);
+}
+.box{
+  width:100%;
+  max-width:480px;
+  position:relative;
+  z-index:1;
+}
+/* Kartu utama */
 .card{
-  position:relative;padding:26px 18px 20px;
-  border:1px solid var(--border);border-radius:30px;
-  background:linear-gradient(180deg,#17162bd9,#070914dc);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  box-shadow:0 28px 90px #0009,inset 0 1px rgba(255,255,255,.06);
-  overflow:hidden;animation:in .8s ease both;
+  background:rgba(15,23,42,.7);
+  border:1px solid rgba(14,165,233,.25);
+  border-radius:24px;
+  padding:32px 20px 24px;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:
+    0 0 60px rgba(14,165,233,.15),
+    0 20px 50px rgba(0,0,0,.5);
+  position:relative;
+  overflow:hidden;
 }
-.card::after{
-  content:"";position:absolute;inset:0;border-radius:30px;pointer-events:none;
-  background:linear-gradient(115deg,transparent 15%,rgba(195,167,255,.14),transparent 55%);
-  transform:translateX(-100%);animation:shine 5s ease-in-out infinite;
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#0ea5e9,transparent);
 }
-.hero{text-align:center;position:relative}
-
-.avatar-photo{
-  width:96px;height:96px;border-radius:50%;object-fit:cover;
-  border:2px solid rgba(196,167,255,.5);
-  box-shadow:0 0 0 4px rgba(164,134,255,.12),0 10px 40px rgba(164,134,255,.35);
-  animation:float 3.4s ease-in-out infinite;
-  display:block;position:relative;z-index:2;
+/* Foto profil */
+.photo-wrap{
+  display:flex;
+  justify-content:center;
+  margin-bottom:16px;
+  position:relative;
 }
-
-.emblem{height:120px;display:grid;place-items:center;position:relative}
-.ring{
-  position:absolute;width:106px;height:106px;
-  border:1px solid rgba(203,183,255,.22);border-radius:50%;
-  box-shadow:0 0 45px rgba(151,112,255,.15);
-  animation:spin 16s linear infinite;
+.photo-wrap::before{
+  content:"";
+  position:absolute;
+  width:110px;height:110px;
+  border-radius:50%;
+  border:2px dashed rgba(14,165,233,.4);
+  animation:rotate 20s linear infinite;
 }
-.ring::before,.ring::after{
-  content:"";position:absolute;border-radius:50%;inset:10px;
-  border:1px dashed rgba(213,198,255,.17);
+.photo-wrap::after{
+  content:"";
+  position:absolute;
+  width:130px;height:130px;
+  border-radius:50%;
+  border:1px solid rgba(14,165,233,.15);
+  animation:rotate 30s linear infinite reverse;
 }
-.ring::after{
-  inset:25px;border-style:solid;
-  border-color:rgba(255,255,255,.09);
-  animation:spinr 9s linear infinite;
+.photo{
+  width:90px;height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #0ea5e9;
+  box-shadow:0 0 30px rgba(14,165,233,.5);
+  position:relative;
+  z-index:1;
+  background:#0f172a;
 }
-
-.avatar{
-  width:55px;height:55px;margin:-3px auto 10px;border-radius:17px;
-  display:grid;place-items:center;font-weight:800;letter-spacing:.08em;
-  background:linear-gradient(145deg,var(--primary),var(--primary-2));
-  border:1px solid rgba(255,255,255,.17);
-  box-shadow:0 10px 30px rgba(96,70,182,.3);
+/* Fallback kalau foto tidak ada */
+.photo-fallback{
+  width:90px;height:90px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:32px;
+  font-weight:900;
+  color:#0ea5e9;
+  background:#0f172a;
+  border:3px solid #0ea5e9;
+  box-shadow:0 0 30px rgba(14,165,233,.5);
+  position:relative;
+  z-index:1;
 }
-h1{font-size:29px;margin:0;letter-spacing:-.5px}
-.sub{margin:5px 0 0;color:#c9bdf0;font-size:12px;text-transform:uppercase;letter-spacing:.23em;font-weight:500}
-.desc{margin:11px auto 23px;max-width:390px;color:var(--text-muted);font-size:13px;line-height:1.55}
-
-.links{display:grid;gap:11px}
-.link{
-  min-height:72px;display:flex;align-items:center;gap:13px;
-  padding:10px 14px;border:1px solid rgba(255,255,255,.07);border-radius:19px;
-  background:rgba(255,255,255,.03);color:#fff;text-decoration:none;
-  position:relative;overflow:hidden;transition:all .22s ease;
+/* Nama */
+.name{
+  text-align:center;
+  font-size:26px;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-.5px;
+  margin-bottom:6px;
 }
-.link::before{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(255,255,255,.06),transparent 48%);
-  transform:translateX(-110%);transition:transform .5s ease;
+.name span{color:#0ea5e9}
+.tagline{
+  text-align:center;
+  font-size:11px;
+  color:#64748b;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:8px;
 }
-.link:hover{
-  transform:translateY(-3px) scale(1.01);
-  border-color:rgba(198,173,255,.33);background:rgba(255,255,255,.05);
-  box-shadow:0 14px 35px rgba(0,0,0,.3);
+.bio{
+  text-align:center;
+  font-size:13px;
+  color:#94a3b8;
+  line-height:1.5;
+  margin-bottom:24px;
+  padding:0 10px;
 }
-.link:hover::before{transform:translateX(110%)}
-.link:active{transform:scale(.96);transition:.06s}
-.icon{
-  width:44px;height:44px;flex:0 0 44px;border-radius:14px;
-  display:grid;place-items:center;font-size:20px;font-weight:900;
-  background:rgba(255,255,255,.05);
+/* Tombol link */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
-.y .icon{background:rgba(255,71,71,.11);color:#ff6b6b}
-.t .icon{background:rgba(77,224,208,.1);color:#4de0d0}
-.w .icon{background:rgba(77,222,130,.1);color:#4dde82}
-.txt{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
-.txt strong{font-size:15px;font-weight:600}
-.txt small{font-size:11px;color:#9d9bab;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.arrow{color:#aaa4b6;font-size:20px;transition:all .22s ease}
-.link:hover .arrow{color:#fff;transform:translate(3px,-3px)}
-.note{text-align:center;margin:16px 0 0;color:var(--text-dim);font-size:10px}
-
-.particles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-.p{
-  position:absolute;width:3px;height:3px;border-radius:50%;
-  background:rgba(216,202,255,.53);animation:rise linear infinite;
+.btn{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  background:rgba(30,41,59,.6);
+  border:1px solid rgba(51,65,85,.6);
+  border-radius:14px;
+  color:#e2e8f0;
+  text-decoration:none;
+  transition:all .25s ease;
+  position:relative;
+  overflow:hidden;
 }
-.ripple{
-  position:fixed;width:8px;height:8px;border:1px solid rgba(217,202,255,.67);
-  border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:9;
-  animation:rip .65s ease-out forwards;
+.btn::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:3px;
+  background:#0ea5e9;
+  transform:scaleY(0);
+  transition:transform .25s ease;
+  transform-origin:center;
 }
-
-@keyframes in{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spinr{to{transform:rotate(-360deg)}}
-@keyframes float{50%{transform:translateY(-6px)}}
-@keyframes drift{50%{transform:translate(28px,-22px) scale(1.12)}}
-@keyframes shine{0%,65%{transform:translateX(-100%)}85%,100%{transform:translateX(100%)}}
-@keyframes rise{from{transform:translateY(110vh);opacity:0}15%{opacity:.7}to{transform:translateY(-10vh);opacity:0}}
-@keyframes rip{to{width:250px;height:250px;opacity:0}}
-
-@media(max-width:420px){
-  .wrap{padding:12px}
-  .card{padding:23px 14px 18px;border-radius:26px}
-  .emblem{height:105px}
-  .ring{width:92px;height:92px}
-  h1{font-size:27px}
-  .avatar-photo{width:84px;height:84px}
+.btn:hover{
+  background:rgba(30,41,59,.9);
+  border-color:rgba(14,165,233,.5);
+  transform:translateX(4px);
+  box-shadow:0 8px 24px rgba(14,165,233,.15);
+}
+.btn:hover::before{transform:scaleY(1)}
+.btn:active{transform:scale(.98)}
+.btn-icon{
+  width:40px;height:40px;
+  flex:0 0 40px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  font-size:18px;
+  background:rgba(14,165,233,.15);
+  color:#0ea5e9;
+  font-weight:900;
+}
+.btn-icon.red{background:rgba(239,68,68,.15);color:#ef4444}
+.btn-icon.cyan{background:rgba(6,182,212,.15);color:#06b6d4}
+.btn-icon.green{background:rgba(34,197,94,.15);color:#22c55e}
+.btn-text{
+  flex:1;
+  min-width:0;
+}
+.btn-text b{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:2px;
+}
+.btn-text small{
+  font-size:11px;
+  color:#64748b;
+  display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.btn-arrow{
+  color:#475569;
+  font-size:16px;
+  transition:all .25s ease;
+}
+.btn:hover .btn-arrow{
+  color:#0ea5e9;
+  transform:translateX(3px);
+}
+/* Footer */
+.footer{
+  text-align:center;
+  font-size:10px;
+  color:#475569;
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid rgba(51,65,85,.3);
+}
+/* Animasi */
+@keyframes rotate{to{transform:rotate(360deg)}}
+/* Responsive */
+@media(max-width:400px){
+  .card{padding:26px 16px 20px;border-radius:20px}
+  .photo,.photo-fallback{width:80px;height:80px}
+  .photo-wrap::before{width:96px;height:96px}
+  .photo-wrap::after{width:114px;height:114px}
+  .name{font-size:22px}
+  .btn{padding:12px 14px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
 <body>
 
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="particles"></div>
+<div class="box">
+  <div class="card">
 
-<main class="wrap">
-  <section class="card">
-    <div class="hero">
-      <div class="emblem">
-        <div class="ring"></div>
-        <img src="foto.jpg" alt="Huo Zhao" class="avatar-photo" onerror="this.style.display='none'">
-      </div>
-      <div class="avatar">HZ</div>
-      <h1>Huo Zhao</h1>
-      <div class="sub">Official Links</div>
-      <p class="desc">Ikuti semua kanal resmi Huo Zhao melalui tombol di bawah.</p>
+    <!-- FOTO PROFIL -->
+    <div class="photo-wrap">
+      <!-- Ganti "foto.jpg" dengan nama file foto kamu -->
+      <img src="foto.jpg" alt="Huo Zhao" class="photo" onerror="this.outerHTML='<div class=&quot;photo-fallback&quot;>龍</div>'">
     </div>
 
-    <nav class="links" aria-label="Link resmi">
-      <a class="link y" href="https://www.youtube.com/@huozhao1" target="_blank" rel="noopener">
-        <span class="icon">▶</span>
-        <span class="txt"><strong>YouTube</strong><small>@huozhao1</small></span>
-        <span class="arrow">↗</span>
-      </a>
-      <a class="link t" href="https://www.tiktok.com/@huozhao5" target="_blank" rel="noopener">
-        <span class="icon">♪</span>
-        <span class="txt"><strong>TikTok</strong><small>@huozhao5</small></span>
-        <span class="arrow">↗</span>
-      </a>
-      <a class="link w" href="https://whatsapp.com/channel/0029Vb5dhRcJ93weFEQ1Tm3z" target="_blank" rel="noopener">
-        <span class="icon">◉</span>
-        <span class="txt"><strong>Saluran WhatsApp</strong><small>Gabung ke saluran WhatsApp</small></span>
-        <span class="arrow">↗</span>
-      </a>
-    </nav>
+    <!-- NAMA -->
+    <div class="name">Huo <span>Zhao</span></div>
+    <div class="tagline">Official Links</div>
+    <div class="bio">Ikuti semua kanal resmi Huo Zhao melalui tombol di bawah ini.</div>
 
-    <div class="note">Tekan tombol untuk membuka kanal resmi</div>
-  </section>
-</main>
+    <!-- TOMBOL LINK -->
+    <div class="links">
 
-<script>
-const box = document.querySelector('.particles');
-for (let i = 0; i < 28; i++) {
-  const p = document.createElement('i');
-  p.className = 'p';
-  p.style.left = Math.random() * 100 + '%';
-  p.style.animationDuration = (6 + Math.random() * 9) + 's';
-  p.style.animationDelay = -Math.random() * 12 + 's';
-  box.appendChild(p);
-}
-document.querySelectorAll('.link').forEach(a => {
-  a.addEventListener('click', e => {
-    const r = document.createElement('i');
-    r.className = 'ripple';
-    r.style.left = e.clientX + 'px';
-    r.style.top = e.clientY + 'px';
-    document.body.appendChild(r);
-    setTimeout(() => r.remove(), 700);
-  });
-});
-</script>
+      <a class="btn" href="https://www.youtube.com/@huozhao1" target="_blank" rel="noopener">
+        <div class="btn-icon red">▶</div>
+        <div class="btn-text">
+          <b>YouTube</b>
+          <small>@huozhao1</small>
+        </div>
+        <div class="btn-arrow">→</div>
+      </a>
+
+      <a class="btn" href="https://www.tiktok.com/@huozhao5" target="_blank" rel="noopener">
+        <div class="btn-icon cyan">♪</div>
+        <div class="btn-text">
+          <b>TikTok</b>
+          <small>@huozhao5</small>
+        </div>
+        <div class="btn-arrow">→</div>
+      </a>
+
+      <a class="btn" href="https://whatsapp.com/channel/0029Vb5dhRcJ93weFEQ1Tm3z" target="_blank" rel="noopener">
+        <div class="btn-icon green">◉</div>
+        <div class="btn-text">
+          <b>Saluran WhatsApp</b>
+          <small>Gabung ke saluran WhatsApp</small>
+        </div>
+        <div class="btn-arrow">→</div>
+      </a>
+
+    </div>
+
+    <div class="footer">Tekan tombol untuk membuka kanal resmi</div>
+  </div>
+</div>
+
 </body>
 </html>
