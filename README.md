@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#070812">
-<meta name="description" content="Kanal resmi Huo Zhao — YouTube, TikTok, WhatsApp">
 <title>Huo Zhao • Official Links</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -61,7 +60,6 @@ body::before{
 }
 .hero{text-align:center;position:relative}
 
-/* ====== FOTO PROFIL ====== */
 .avatar-photo{
   width:96px;height:96px;border-radius:50%;object-fit:cover;
   border:2px solid rgba(196,167,255,.5);
@@ -174,17 +172,10 @@ h1{font-size:29px;margin:0;letter-spacing:-.5px}
 <main class="wrap">
   <section class="card">
     <div class="hero">
-
-      <!-- ==========================================
-           FOTO PROFIL
-           Ganti "foto.jpg" sesuai nama file kamu
-           Kalau foto di folder images: "images/foto.jpg"
-           ========================================== -->
       <div class="emblem">
         <div class="ring"></div>
         <img src="foto.jpg" alt="Huo Zhao" class="avatar-photo" onerror="this.style.display='none'">
       </div>
-
       <div class="avatar">HZ</div>
       <h1>Huo Zhao</h1>
       <div class="sub">Official Links</div>
